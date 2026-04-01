@@ -34,22 +34,53 @@ if (isset($_GET["nome"])) {
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <title>Editar usuario</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Usuário</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .btn-voltar {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 15px;
+            background: #6c757d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: background 0.3s ease;
+        }
+        .btn-voltar:hover {
+            background: #5a6268;
+        }
+        .erro-msg {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid #dc3545;
+        }
+    </style>
 </head>
 <body>
-<h1>Editar usuario</h1>
+    <div class="container">
+        <a href="index.php" class="btn-voltar">← Voltar</a>
+        <h1>Editar Usuário</h1>
 
-<?php if (isset($_GET["erro"])): ?>
-    <p style="color: red;">Nome obrigatorio.</p>
-<?php endif; ?>
+        <?php if (isset($_GET["erro"])): ?>
+            <div class="erro-msg">⚠ Nome é obrigatório.</div>
+        <?php endif; ?>
 
-<form action="atualizar.php" method="POST">
-    <input type="hidden" name="id" value="<?php echo escapar((string) $usuario["id"]); ?>">
-    <input type="text" name="nome" value="<?php echo escapar($nomeInput); ?>">
-    <button type="submit">Atualizar</button>
-</form>
-
+        <form action="atualizar.php" method="POST">
+            <input type="hidden" name="id" value="<?php echo escapar((string) $usuario["id"]); ?>">
+            <div class="form-group">
+                <input type="text" name="nome" value="<?php echo escapar($nomeInput); ?>" placeholder="Nome do usuário" required>
+                <button type="submit">Atualizar</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

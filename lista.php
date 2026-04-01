@@ -9,16 +9,22 @@ try {
             $id = (int) $row["id"];
             $nome = escapar($row["nome"]);
 
-            echo "<p>{$nome} <a href='editar.php?id={$id}'>editar</a> <a href='excluir.php?id={$id}'>excluir</a></p>";
+            echo "<div class='usuario-item'>";
+            echo "    <span class='usuario-nome'>{$nome}</span>";
+            echo "    <div class='usuario-acoes'>";
+            echo "        <a href='editar.php?id={$id}'>✎ Editar</a>";
+            echo "        <a href='excluir.php?id={$id}'>✕ Excluir</a>";
+            echo "    </div>";
+            echo "</div>";
         }
     } else {
-        echo "Nenhum usuario cadastrado.";
+        echo "<p class='lista-vazia'>Nenhum usuário cadastrado.</p>";
     }
 
     $resultado->free();
     $conexao->close();
 } catch (mysqli_sql_exception $e) {
     http_response_code(500);
-    echo "Erro ao listar os usuarios.";
+    echo "<p class='lista-vazia'>Erro ao listar os usuários.</p>";
 }
 ?>
