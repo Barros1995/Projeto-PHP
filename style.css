@@ -93,7 +93,7 @@ button:active {
 }
 
 .usuario-item:hover {
-    background: #e9ecef;
+    background: #c9f0f0;
 }
 
 .usuario-nome {
@@ -123,16 +123,41 @@ button:active {
 }
 
 .usuario-acoes a:first-child:hover {
-    background: #138496;
+    background: #176982;
 }
 
 .usuario-acoes a:last-child {
-    background: #dc3545;
+    background: #f6404f;
     color: white;
 }
 
 .usuario-acoes a:last-child:hover {
-    background: #c82333;
+    background: #860202;
+}
+
+.btn-voltar {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    background: #6c757d;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.btn-voltar:hover {
+    background: #5a6268;
+}
+
+.erro-msg {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 12px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border-left: 4px solid #dc3545;
 }
 
 .lista-vazia {
